@@ -34,7 +34,7 @@ h6 {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
