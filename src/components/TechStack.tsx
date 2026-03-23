@@ -13,14 +13,14 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "images/icon_powerbi.png",
-  "images/icon_python.png",
-  "images/icon_tableau.png",
-  "images/icon_excel.png",
-  "images/icon_r.png",
-  "images/mongo.webp",
-  "images/mysql.webp",
-  "images/javascript.webp",
+  `${import.meta.env.BASE_URL}images/icon_powerbi.png`,
+  `${import.meta.env.BASE_URL}images/icon_python.png`,
+  `${import.meta.env.BASE_URL}images/icon_tableau.png`,
+  `${import.meta.env.BASE_URL}images/icon_excel.png`,
+  `${import.meta.env.BASE_URL}images/icon_r.png`,
+  `${import.meta.env.BASE_URL}images/mongo.webp`,
+  `${import.meta.env.BASE_URL}images/mysql.webp`,
+  `${import.meta.env.BASE_URL}images/javascript.webp`,
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -199,7 +199,7 @@ const TechStack = () => {
           ))}
         </Physics>
         <Environment
-          files="models/char_enviorment.hdr"
+          files={`${import.meta.env.BASE_URL}models/char_enviorment.hdr`}
           environmentIntensity={0.5}
           environmentRotation={[0, 4, 2]}
         />

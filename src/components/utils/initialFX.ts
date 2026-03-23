@@ -17,10 +17,10 @@ export function initialFX() {
 
   // Simple Loop without SplitText
   const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-  tl.to(".role-analyst", { opacity: 0, y: -20, duration: 0.6, ease: "power2.in" }, 2)
-    .fromTo(".role-engineer", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">")
-    .to(".role-engineer", { opacity: 0, y: -20, duration: 0.6, ease: "power2.in" }, "+=2")
-    .fromTo(".role-analyst", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">");
+  tl.to(".role-analyst", { autoAlpha: 0, y: -20, duration: 0.6, ease: "power2.in" }, 2)
+    .fromTo(".role-engineer", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">")
+    .to(".role-engineer", { autoAlpha: 0, y: -20, duration: 0.6, ease: "power2.in" }, "+=2")
+    .fromTo(".role-analyst", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">");
 
   gsap.fromTo(
     [".header", ".icons-section", ".nav-fade"],
