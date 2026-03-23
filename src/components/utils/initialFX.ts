@@ -13,6 +13,10 @@ export function initialFX() {
     const elements = document.querySelectorAll(selector);
     let allSpans: HTMLElement[] = [];
     elements.forEach(el => {
+      if (el.getAttribute("data-split")) {
+        allSpans = [...allSpans, ...Array.from(el.querySelectorAll("span"))] as HTMLElement[];
+        return;
+      }
       const text = el.textContent || "";
       el.innerHTML = "";
       [...text].forEach(char => {
@@ -22,6 +26,7 @@ export function initialFX() {
         el.appendChild(span);
         allSpans.push(span);
       });
+      el.setAttribute("data-split", "true");
     });
     return allSpans;
   };
