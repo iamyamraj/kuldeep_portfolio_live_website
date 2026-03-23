@@ -1,7 +1,15 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import "./styles/Landing.css";
 
 const Landing = ({ children }: PropsWithChildren) => {
+  useEffect(() => {
+    import("./utils/initialFX").then((module) => {
+      if (module.initialFX) {
+        module.initialFX();
+      }
+    });
+  }, []);
+
   return (
     <>
       <div className="landing-section" id="landingDiv">
@@ -9,8 +17,8 @@ const Landing = ({ children }: PropsWithChildren) => {
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
             <h1>
-              <div>KULDEEP</div>
-              <div>SINGH</div>
+              <div className="name-line">KULDEEP</div>
+              <div className="name-line">SINGH</div>
             </h1>
           </div>
           <div className="landing-info">

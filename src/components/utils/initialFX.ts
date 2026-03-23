@@ -31,7 +31,7 @@ export function initialFX() {
     return allSpans;
   };
 
-  manualSplit(".landing-intro h2, .landing-intro h1, .landing-info h3");
+  manualSplit(".landing-intro h2, .landing-intro h1 .name-line, .landing-info h3");
   gsap.fromTo(
     ".landing-intro h2 span, .landing-intro h1 span, .landing-info h3 span",
     { opacity: 0, y: 30, filter: "blur(5px)" },
