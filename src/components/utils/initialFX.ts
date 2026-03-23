@@ -54,10 +54,13 @@ export function initialFX() {
     const delay = 4;
     const delay2 = delay * 2 + 1;
 
-    tl.fromTo(chars2, { opacity: 0, y: 80 }, { opacity: 1, duration: 1.2, ease: "power3.inOut", y: 0, stagger: 0.1, delay: delay }, 0)
-      .fromTo(chars1, { y: 80 }, { duration: 1.2, ease: "power3.inOut", y: 0, stagger: 0.1, delay: delay2 }, 1)
-      .fromTo(chars1, { y: 0 }, { y: -80, duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay }, 0)
-      .to(chars2, { y: -80, duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay2 }, 1);
+    tl.set(chars1, { opacity: 1, y: 0, filter: "blur(0px)" })
+      .set(chars2, { opacity: 0, y: 80, filter: "blur(5px)" });
+
+    tl.fromTo(chars2, { opacity: 0, y: 80, filter: "blur(5px)" }, { opacity: 1, duration: 1.2, ease: "power3.inOut", y: 0, filter: "blur(0px)", stagger: 0.1, delay: delay }, 0)
+      .fromTo(chars1, { y: 80, filter: "blur(5px)" }, { duration: 1.2, ease: "power3.inOut", y: 0, filter: "blur(0px)", stagger: 0.1, delay: delay2 }, 1)
+      .fromTo(chars1, { y: 0, filter: "blur(0px)" }, { y: -80, opacity: 0, filter: "blur(5px)", duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay }, 0)
+      .to(chars2, { y: -80, opacity: 0, filter: "blur(5px)", duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay2 }, 1);
   }
 
   SetupLoop(".landing-role-1", ".landing-role-2");
