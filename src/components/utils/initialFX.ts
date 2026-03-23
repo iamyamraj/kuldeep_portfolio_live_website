@@ -64,8 +64,7 @@ export function initialFX() {
       .to(chars2, { y: -80, opacity: 0, filter: "blur(5px)", duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay2 }, 1);
   }
 
-  SetupLoop(".landing-h2-info", ".landing-h2-info-1");
-  SetupLoop(".landing-h2-1", ".landing-h2-2");
+  SetupLoop(".landing-role-1", ".landing-role-2");
 
   gsap.fromTo(
     [".header", ".icons-section", ".nav-fade"],
