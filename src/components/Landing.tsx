@@ -1,13 +1,10 @@
 import { PropsWithChildren, useEffect } from "react";
 import "./styles/Landing.css";
+import { initialFX } from "./utils/initialFX";
 
 const Landing = ({ children }: PropsWithChildren) => {
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (module.initialFX) {
-        module.initialFX();
-      }
-    });
+    initialFX();
   }, []);
 
   return (

@@ -192,6 +192,10 @@
   font-family: "Geist", sans-serif;
 }
 
+.name-line {
+  display: block;
+}
+
 /* .landing-intro h1 span {
    font-weight: 200; 
 } */
