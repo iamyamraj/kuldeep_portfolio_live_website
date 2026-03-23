@@ -9,18 +9,54 @@ export function initialFX() {
     delay: 1,
   });
 
+  const manualSplit = (selector: string) => {
+    const elements = document.querySelectorAll(selector);
+    let allSpans: HTMLElement[] = [];
+    elements.forEach(el => {
+      const text = el.textContent || "";
+      el.innerHTML = "";
+      [...text].forEach(char => {
+        const span = document.createElement("span");
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.display = "inline-block";
+        el.appendChild(span);
+        allSpans.push(span);
+      });
+    });
+    return allSpans;
+  };
+
+  manualSplit(".landing-intro h2, .landing-intro h1, .landing-info h3");
   gsap.fromTo(
-    ".landing-intro h2, .landing-intro h1, .landing-info h3",
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 1.2, delay: 0.3, stagger: 0.1 }
+    ".landing-intro h2 span, .landing-intro h1 span, .landing-info h3 span",
+    { opacity: 0, y: 30, filter: "blur(5px)" },
+    {
+      opacity: 1,
+      duration: 0.8,
+      filter: "blur(0px)",
+      ease: "power3.out",
+      y: 0,
+      stagger: 0.02,
+      delay: 0.3,
+    }
   );
 
-  // Simple Loop without SplitText
-  const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-  tl.to(".role-analyst", { autoAlpha: 0, y: -20, duration: 0.6, ease: "power2.in" }, 2)
-    .fromTo(".role-engineer", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">")
-    .to(".role-engineer", { autoAlpha: 0, y: -20, duration: 0.6, ease: "power2.in" }, "+=2")
-    .fromTo(".role-analyst", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, ">");
+  function SetupLoop(selector1: string, selector2: string) {
+    const chars1 = manualSplit(selector1);
+    const chars2 = manualSplit(selector2);
+    
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    const delay = 4;
+    const delay2 = delay * 2 + 1;
+
+    tl.fromTo(chars2, { opacity: 0, y: 80 }, { opacity: 1, duration: 1.2, ease: "power3.inOut", y: 0, stagger: 0.1, delay: delay }, 0)
+      .fromTo(chars1, { y: 80 }, { duration: 1.2, ease: "power3.inOut", y: 0, stagger: 0.1, delay: delay2 }, 1)
+      .fromTo(chars1, { y: 0 }, { y: -80, duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay }, 0)
+      .to(chars2, { y: -80, duration: 1.2, ease: "power3.inOut", stagger: 0.1, delay: delay2 }, 1);
+  }
+
+  SetupLoop(".landing-h2-info", ".landing-h2-info-1");
+  SetupLoop(".landing-h2-1", ".landing-h2-2");
 
   gsap.fromTo(
     [".header", ".icons-section", ".nav-fade"],
@@ -31,12 +67,6 @@ export function initialFX() {
       ease: "power1.inOut",
       delay: 0.1,
     }
-  );
-
-  gsap.fromTo(
-    ".landing-h2-info-1",
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 1.2, delay: 0.5 }
   );
 }
 
