@@ -8,31 +8,31 @@ const projects = [
     title: "Customer Churn Prediction",
     category: "Machine Learning (Major)",
     tools: "Python, Scikit-learn, Pandas, Matplotlib",
-    image: "/images/churn.png",
+    image: "images/churn.png",
   },
   {
     title: "Sales Performance Dashboard",
     category: "Business Intelligence (Minor)",
     tools: "PowerBI, DAX, SQL Server",
-    image: "/images/sales.png",
+    image: "images/sales.png",
   },
   {
     title: "E-Commerce Recommendation System",
     category: "Data Science (Major)",
     tools: "Python, TensorFlow, Collaborative Filtering",
-    image: "/images/ecomm.png",
+    image: "images/ecomm.png",
   },
   {
     title: "Inventory Optimization Analysis",
     category: "Data Analytics (Minor)",
     tools: "Python, SQL, Seaborn",
-    image: "/images/inventory.png",
+    image: "images/inventory.png",
   },
   {
     title: "Automated ETL Pipeline",
     category: "Data Engineering (Major)",
     tools: "Python, Apache Airflow, PostgreSQL",
-    image: "/images/etl.png",
+    image: "images/etl.png",
   }
 ];
 
