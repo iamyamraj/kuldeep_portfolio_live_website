@@ -228,8 +228,10 @@
   letter-spacing: 2px;
 }
 
-.landing-role-1,
-.landing-role-2 {
+.landing-h2-info,
+.landing-h2-info-1,
+.landing-h2-1,
+.landing-h2-2 {
   position: absolute;
   top: 0;
   opacity: 0;
@@ -239,14 +241,12 @@
 h2.landing-info-h2 {
   color: #14b8a6;
   font-size: 42px;
-  width: auto;
-  min-width: 300px;
+  width: 120%;
   margin: 0;
   font-family: "Geist", sans-serif;
   font-weight: 600;
   position: relative;
   margin-left: -5px;
-  height: 60px;
 }
 
 /* No change needed for .landing-h2-2 as it's covered by the group above */
