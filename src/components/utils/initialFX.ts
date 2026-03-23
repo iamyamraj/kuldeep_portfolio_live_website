@@ -54,6 +54,7 @@ export function initialFX() {
     const delay = 4;
     const delay2 = delay * 2 + 1;
 
+    gsap.set([selector1, selector2], { opacity: 1 });
     tl.set(chars1, { opacity: 1, y: 0, filter: "blur(0px)" })
       .set(chars2, { opacity: 0, y: 80, filter: "blur(5px)" });
 
